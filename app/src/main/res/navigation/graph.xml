@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph"
+    app:startDestination="@id/userLogin">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.tolgaay.myhomework384_fragmentnavigation.ListFragment"
+        android:label="Art Book"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/list_TO_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/list_TO_IserLoginFragment"
+            app:destination="@id/userLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.tolgaay.myhomework384_fragmentnavigation.DetailFragment"
+        android:label="Add Details"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/detail_TO_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="info"
+            app:argType="string"
+            android:defaultValue='null' />
+    </fragment>
+    <fragment
+        android:id="@+id/userLogin"
+        android:name="com.tolgaay.myhomework384_fragmentnavigation.UserLogin"
+        android:label="fragment_user_login"
+        tools:layout="@layout/fragment_user_login" >
+        <action
+            android:id="@+id/login_TO_ListFragment"
+            app:destination="@id/listFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/userLogin"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
